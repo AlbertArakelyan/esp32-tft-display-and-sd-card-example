@@ -1,0 +1,24 @@
+//// TFT display
+
+TFT.[GND] ->	    ESP32.[GND]
+TFT.[VCC] ->	    ESP32.[3V3]	// See voltage note below
+TFT.[CLK (SCK)] ->  ESP32.[GPIO 18]	// VSPI clock
+TFT.[MOSI (SDA)] ->	ESP32.[GPIO 23]	// VSPI data out
+TFT.[MISO] ->       ESP32.[GPIO 19]	// Only for reading from the display; can be left unconnected
+TFT.[RES (RST)] ->	ESP32.[GPIO 4	]
+TFT.[DC (RS)] ->	ESP32.[GPIO 2]
+TFT.[BLK] ->	    ESP32.[3V3]	// Or a GPIO (e.g. 32) if you want PWM brightness control
+
+---
+
+//// SD Card module
+
+SD module	ESP32	Notes
+------------------------------
+VCC	        5V	    Most modules have a 3.3V regulator on board; check yours
+GND	        GND	
+SCK / CLK	GPIO 18	Shared with TFT
+MOSI / DI	GPIO 23	Shared with TFT
+MISO / DO	GPIO 19	Shared with TFT
+CS / SS	    GPIO 5	Its own line
+// As my module has "AMS1117" regulator it uses 5V
