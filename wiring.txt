@@ -13,12 +13,10 @@ TFT.[BLK] ->	    ESP32.[3V3]	// Or a GPIO (e.g. 32) if you want PWM brightness c
 
 //// SD Card module
 
-SD module	ESP32	Notes
-------------------------------
-VCC	        5V	    Most modules have a 3.3V regulator on board; check yours
-GND	        GND	
-SCK / CLK	GPIO 18	Shared with TFT
-MOSI / DI	GPIO 23	Shared with TFT
-MISO / DO	GPIO 19	Shared with TFT
-CS / SS	    GPIO 5	Its own line
+SD.[GND] ->	        ESP32.[GND]	
+SD.[VCC] ->	        ESP32.[5V]	// Most modules have a 3.3V regulator on board; check yours
+SD.[SCK / CLK] ->	  ESP32.[GPIO 18] //	Shared with TFT
+SD.[MOSI / DI] ->	  ESP32.[GPIO 23] //	Shared with TFT
+SD.[MISO / DO] -> 	ESP32.[GPIO 19] //	Shared with TFT
+SD.[CS / SS] ->	    ESP32.[GPIO 5] //	Its own line
 // As my module has "AMS1117" regulator it uses 5V
